@@ -1,24 +1,30 @@
 #include "function_pointers.h"
+
 /**
- * int_index - searches for an integer
- * @array: array with data
- * @size: size of the array
- * @cmp: function pointer
- * Return: count of integer
- */
+  * int_index - ...
+  * @array: ...
+  * @size: ...
+  * @cmp: ...
+  *
+  * Return: ...
+  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
-int i;
+	int i = 0;
 
-if (size <= 0)
-return (-1);
-if (array == NULL || cmp == NULL)
-return (-1);
+	if (size > 0)
+	{
+		if (array != NULL && cmp != NULL)
+		{
+			while (i < size)
+			{
+				if (cmp(array[i]))
+					return (i);
 
-for (i = 0; i < size; i++)
-{
-if (cmp(array[i]) == 1)
-return (i);
-}
-return (-1);
+				i++;
+			}
+		}
+	}
+
+	return (-1);
 }
